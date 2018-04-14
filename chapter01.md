@@ -75,8 +75,78 @@ shell
 - threads and thread IDs
 
 ## 7. Error Handling
+
+- err handle
+    1. return a negative value or return a pointer to an object return null
+    2. set errno tells why
+
+- files
+    - `errno.h`
+    - intro(2)
+    - errno(3)
+
+- functions
+    - strerror
+    - perror
+
+- 出错信息应包含运行程序名
+
+### error recovery
+
+- fatal error no recovery action
+- nonfatal can recovery
+- delay and retry
+- exponential backoff algorithm
+
 ## 8. User Identification
+
+### UID
+
+- user id can not change
+- root or superuser uid == 0
+
+- function
+    - `getuid`
+
+### Group ID
+
+- group by projects or department
+
+- file
+    - `/etc/group`
+- function
+    - `getgid`
+
+- count of group
+    - 16 at most
+
 ## 9. Signals
+
+- 3 way to handle
+    - ignore
+    - let the default action occur
+    - provide a function
+
+- ways to generate signal
+    - control-C
+    - control-backslach
+    - delete key
+    - `kill`
+    - if send to another process, you have to be its owner
+
+
 ## 10. Time Values
+
+- 2 kinds
+    - calendar time `time_t`
+    - process time (CPU time) `clock_t` = User CPU time + system CPU time
+
+- cmd
+    - time(1)
+
 ## 11. System Calles and Library Functions
+
+- consider system calls to c functions
+- sbrk vs malloc (c function vs system call)
+
 ## 12. Summary
